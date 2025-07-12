@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 .DS_Store
 .build
 *.xcodeproj
@@ -67,4 +68,3 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
->>>>>>> efa90d13373b79134eada342a833067cf61e5526
