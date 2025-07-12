@@ -45,7 +45,7 @@ public final class AgarHapticManager {
     
     
     /// The shared singleton instance.
-    public static let shared = AgarHapticManager()
+    @MainActor public static let shared = AgarHapticManager()
     
     private init() {
         prepareHaptics()
@@ -92,6 +92,7 @@ public final class AgarHapticManager {
 
 import SwiftUI
 
+@available(macOS 10.15, *)
 public extension View {
     /// Applies a shake animation effect to the view.
     func shakeEffect() -> some View {
@@ -100,6 +101,7 @@ public extension View {
 }
 
 // ShakeEffect.swift (modifier used above)
+@available(macOS 10.15, *)
 public struct ShakeEffect: GeometryEffect {
     var amount: CGFloat = 10
     var shakesPerUnit = 3
@@ -116,22 +118,6 @@ public struct ShakeEffect: GeometryEffect {
     }
 }
 
-// Example test file: Tests/AgarCoreKitTests/AgarCoreKitTests.swift
-
-import Testing
-@testable import AgarCoreKit
-
-final class AgarCoreKitTests: XCTestCase {
-    func testHapticManagerSharedInstance() {
-        let instance = AgarHapticManager.shared
-        XCTAssertNotNil(instance)
-    }
-    
-    func testPlayTransientDoesNotThrow() {
-        let manager = AgarHapticManager.shared
-        XCTAssertNoThrow(manager.playTransient(intensity: 0.5, sharpness: 0.5))
-    }
-}
 
 // Example DocC file: Documentation/AgarCoreKit.docc/AgarCoreKit.md
 /*
