@@ -38,6 +38,7 @@ import CoreHaptics
 import Foundation
 
 /// A singleton manager for handling haptic feedback throughout the app or game.
+@available(macOS 10.15, *)
 public final class AgarHapticManager {
     private var engine: CHHapticEngine?
     
