@@ -34,6 +34,7 @@
 
 // Example HapticManager.swift
 
+
 import CoreHaptics
 import Foundation
 
