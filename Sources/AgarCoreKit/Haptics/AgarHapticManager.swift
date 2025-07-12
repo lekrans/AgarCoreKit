@@ -42,6 +42,7 @@ import Foundation
 public final class AgarHapticManager {
     private var engine: CHHapticEngine?
     
+    
     /// The shared singleton instance.
     public static let shared = AgarHapticManager()
     
