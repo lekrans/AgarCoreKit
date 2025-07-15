@@ -13,7 +13,7 @@ public class AgarHapticManager {
     private var engine: CHHapticEngine?
     private var avEngine: AudioManager?
     
-    init() {
+    public init() {
         prepareHaptics()
         prepareAudio()
     }

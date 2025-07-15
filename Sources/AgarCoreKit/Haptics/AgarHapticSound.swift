@@ -97,8 +97,8 @@ public class AgarHapticSound {
     private var def: AgarHapticSoundDefinition
     
     // public
-    var id: UUID = UUID()
-    var name: String {
+    public var id: UUID = UUID()
+    public var name: String {
         return def.name
     }
     

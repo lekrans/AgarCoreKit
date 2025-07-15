@@ -13,7 +13,7 @@ public class AudioManager {
     private var engine: AVAudioEngine?
     
     
-    init() {
+    public init() {
         engine = AVAudioEngine()
         //        player = AVAudioPlayerNode()
         //        timePitch = AVAudioUnitTimePitch() // Controls pitch and rate
