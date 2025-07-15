@@ -163,7 +163,7 @@ public enum Haptics: String, CaseIterable {
 ///
 /// >Important:  For now the ``AgarHapticSoundDefinition`` are declared straight into the class. Later this will instead be a list so you could add/remove functions into this class or even import whole libraries with functions
 public class HapticSoundGenerator {
-    @MainActor static let shared = HapticSoundGenerator()
+    @MainActor public static let shared = HapticSoundGenerator()
     
     init() {}
     
@@ -174,7 +174,7 @@ public class HapticSoundGenerator {
     ///   - name: The name of the predefined event
     ///   - rate: The speed of the AgarHapticSound
     /// - Returns: An instance of ``AgarHapticSound``
-    func generate(name: Haptics, rate: Double = 1.0) -> AgarHapticSound {
+    @MainActor func generate(name: Haptics, rate: Double = 1.0) -> AgarHapticSound {
         guard rate != 0 else {
             fatalError("try to generate haptic with rate 0")
         }
@@ -193,7 +193,7 @@ public class HapticSoundGenerator {
     
     /// A long industrial  hydraulic door open or close
     /// - Returns: ``AgarHapticSoundDefinition``
-    func hydraulicDoor1() -> AgarHapticSoundDefinition {
+    @MainActor func hydraulicDoor1() -> AgarHapticSoundDefinition {
         let soundResource = AS.construction.building.door.metal.heavy.hydraulic.sliding.opening
         let duration = soundResource.length
         
@@ -210,7 +210,7 @@ public class HapticSoundGenerator {
     
     /// A longindustrial hydraulic door open or close
     /// - Returns: ``AgarHapticSoundDefinition``
-    func hydraulicDoor2() -> AgarHapticSoundDefinition {
+    @MainActor func hydraulicDoor2() -> AgarHapticSoundDefinition {
         let soundResource = AS.construction.building.door.metal.heavy.hydraulic.sliding.closing
         let duration = soundResource.length
         let events: [AgarNormalizedHapticEvent] = [
@@ -227,7 +227,7 @@ public class HapticSoundGenerator {
     
     /// A swoosh effect + gun cocking
     /// - Returns: ``AgarHapticSoundDefinition``
-    func weaponItemSelected() -> AgarHapticSoundDefinition {
+    @MainActor func weaponItemSelected() -> AgarHapticSoundDefinition {
         let gunCocking = AS.weapons.small.guns.cocking.short
         let swoosh = AS.effects.swooshes.short
         let duration = gunCocking.length

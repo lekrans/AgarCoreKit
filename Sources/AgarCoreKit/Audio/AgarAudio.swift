@@ -15,7 +15,7 @@
 import SpriteKit
 import AVFoundation
 
-struct AgarAudioResource {
+public struct AgarAudioResource {
     var fileName: String
     var volume: Float = 1.0
     var pitch: Float = 1.0
@@ -36,7 +36,7 @@ struct AgarAudioResource {
     
 }
 
-struct AgarSounds {
+public struct AgarSounds {
     // type of sound
     struct construction {
         struct building {
@@ -45,8 +45,8 @@ struct AgarSounds {
                     struct heavy {
                         struct hydraulic {
                             struct sliding {
-                                static let opening = AgarAudioResource(fileName: "hydraulic1.wav", length: 1.71)
-                                static let closing = AgarAudioResource(fileName: "hydraulic2.wav", length: 1.58)
+                                @MainActor static let opening = AgarAudioResource(fileName: "hydraulic1.wav", length: 1.71)
+                                @MainActor static let closing = AgarAudioResource(fileName: "hydraulic2.wav", length: 1.58)
                             } // sliding
                         } // hydraulic
                     } // heavy
@@ -67,8 +67,8 @@ struct AgarSounds {
         struct small {
             struct guns {
                 struct cocking {
-                    static let long = AgarAudioResource(fileName: "cocking1.wav", length: 1.02)
-                    static let short = AgarAudioResource(fileName: "cocking2.wav", length: 0.79)
+                    @MainActor static let long = AgarAudioResource(fileName: "cocking1.wav", length: 1.02)
+                    @MainActor static let short = AgarAudioResource(fileName: "cocking2.wav", length: 0.79)
                 } // cocking
             } // guns
             struct swords {
@@ -88,7 +88,7 @@ struct AgarSounds {
             //            static let medium = AgarSoundResource(fileName: "explosion2.wav", volume: 1.0, pitch: 1.0)
         } // explosions
         struct swooshes {
-            static let short = AgarAudioResource(fileName: "swoosh.flac", length: 0.58)
+            @MainActor static let short = AgarAudioResource(fileName: "swoosh.flac", length: 0.58)
         } // Swooshes
     } // effects
 }
