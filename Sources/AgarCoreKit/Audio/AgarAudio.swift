@@ -1,0 +1,97 @@
+//
+//  AgarSounds.swift
+//  TheInstables
+//
+//  Created by Michael Lekrans on 2025-07-09.
+//
+
+/// =====================================================
+///    module:          `AgarSounds.swift`
+///    Author:            `Michael Lekrans`
+///    shortDesc:      `Collection of Sounds`
+///    description:     `Collection of Sounds ordered hierarchical`
+/// =====================================================
+
+import SpriteKit
+import AVFoundation
+
+struct AgarAudioResource {
+    var fileName: String
+    var volume: Float = 1.0
+    var pitch: Float = 1.0
+    var rate: Float = 1.0
+    var length: TimeInterval
+    var relativeTime: TimeInterval = 0.0
+    
+    /// FileName without extension
+    var name: String {
+        return String(fileName.split(separator: ".").first ?? "")
+    }
+    
+    /// File extension
+    var ext: String {
+        return String(fileName.split(separator: ".").last ?? "")
+    }
+    
+    
+}
+
+struct AgarSounds {
+    // type of sound
+    struct construction {
+        struct building {
+            struct door {
+                struct metal {
+                    struct heavy {
+                        struct hydraulic {
+                            struct sliding {
+                                static let opening = AgarAudioResource(fileName: "hydraulic1.wav", length: 1.71)
+                                static let closing = AgarAudioResource(fileName: "hydraulic2.wav", length: 1.58)
+                            } // sliding
+                        } // hydraulic
+                    } // heavy
+                } // metal
+                struct wood {
+                    
+                } // wood
+            } // door
+        } // Building
+    } // Construction
+    struct weapons {
+        struct large {
+            
+        } // large
+        struct medium {
+            
+        } // medium
+        struct small {
+            struct guns {
+                struct cocking {
+                    static let long = AgarAudioResource(fileName: "cocking1.wav", length: 1.02)
+                    static let short = AgarAudioResource(fileName: "cocking2.wav", length: 0.79)
+                } // cocking
+            } // guns
+            struct swords {
+                
+            } // swords
+            struct spears {
+                
+            } // spears
+            struct axes {
+                
+            } // axes
+        } // small
+    } // weapons
+    struct effects {
+        struct explosions {
+            //            static let small = AgarSoundResource(fileName: "explosion1.wav", volume: 1.0, pitch: 1.0)
+            //            static let medium = AgarSoundResource(fileName: "explosion2.wav", volume: 1.0, pitch: 1.0)
+        } // explosions
+        struct swooshes {
+            static let short = AgarAudioResource(fileName: "swoosh.flac", length: 0.58)
+        } // Swooshes
+    } // effects
+}
+
+typealias AS = AgarSounds
+

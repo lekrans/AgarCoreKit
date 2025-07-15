@@ -39,6 +39,7 @@ import CoreHaptics
 import Foundation
 
 /// A singleton manager for handling haptic feedback throughout the app or game.
+///
 @available(macOS 10.15, *)
 public final class AgarHapticManager {
     private var engine: CHHapticEngine?
@@ -85,6 +86,19 @@ public final class AgarHapticManager {
         } catch {
             print("[HapticManager] Playback error: \(error.localizedDescription)")
         }
+    }
+    
+    
+    
+    /// A function that do some shit
+    ///
+    /// This is something we use to do blalbalba
+    /// - Parameters:
+    ///   - name: the name of the shit
+    ///   - age: the age of the shit
+    /// - Returns: if it is a shit 
+    public func doSomeShit(name: String, age: Int) -> Bool {
+        return true
     }
 }
 

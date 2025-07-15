@@ -3,10 +3,12 @@
 
 import PackageDescription
 
+
 let package = Package(
     name: "AgarCoreKit",
     platforms:  [
-        .iOS(.v15)
+        .iOS(.v15),
+        .macOS(.v12),
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -31,6 +33,12 @@ let package = Package(
             dependencies: ["AgarCoreKit"],
             path: "Tests/AgarCoreKitTests"
         ),
+        .testTarget(
+            name: "AgarHapticManagerTests",
+            dependencies: ["AgarCoreKit"],
+            path: "Tests/AgarHapticManagerTests"
+        ),
+            
     ]
 )
 
