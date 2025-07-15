@@ -19,7 +19,7 @@ import CoreHaptics
 /// Template for CHHapticEvent with normalized (0-1) values
 ///
 /// NormalizedHapticEvent is used as a base template for creating CHHapticEvent's by calling it's ``toCHHapticEvent(rate:totalDuration:)``
-struct AgarNormalizedHapticEvent {
+public struct AgarNormalizedHapticEvent {
     /// type of event: [.hapticTransient .hapticContinuous]
     var type: CHHapticEvent.EventType
     
@@ -67,7 +67,7 @@ struct AgarNormalizedHapticEvent {
 /// *****************************************
 
 ///  A container representing a sound/haptic  synced relation. events are defined with normalized relativeTime and duration to be able to calculate the real values
-struct AgarHapticSoundDefinition {
+public struct AgarHapticSoundDefinition {
     var name: String
     var events: [AgarNormalizedHapticEvent]
     var soundResources: [AgarAudioResource]
@@ -88,7 +88,7 @@ struct AgarHapticSoundDefinition {
 /// The ``HapticSound`` class combine the ``CHHapticEvent`` with  ``AgarSoundResource`` information to make it easier to **synchronize** sound and haptics.
 ///
 ///When ***initialized*** the  rate  of the sound/haptic can be adjusted by setting a value higher than 1.0 (increase speed) or less than 1.0 to lower the speed and the timings will be recalculated to still be in sync
-class AgarHapticSound {
+public class AgarHapticSound {
     static func == (lhs: AgarHapticSound, rhs: AgarHapticSound) -> Bool {
         return lhs.id == rhs.id
     }
@@ -147,7 +147,7 @@ class AgarHapticSound {
 /// *****************************************
 
 /// Enum for  AgarHapticSoundDefinitionFunctions available
-enum Haptics: String, CaseIterable {
+public enum Haptics: String, CaseIterable {
     case hydraulicDoor1
     case hydraulicDoor2
     case weaponItemSelected
@@ -162,8 +162,8 @@ enum Haptics: String, CaseIterable {
 /// Generate AgarHapticSound instances with generator function AgarHapticSoundDefinitionFunction injected
 ///
 /// >Important:  For now the ``AgarHapticSoundDefinition`` are declared straight into the class. Later this will instead be a list so you could add/remove functions into this class or even import whole libraries with functions
-class HapticSoundGenerator {
-    static let shared = HapticSoundGenerator()
+public class HapticSoundGenerator {
+    @MainActor static let shared = HapticSoundGenerator()
     
     init() {}
     
