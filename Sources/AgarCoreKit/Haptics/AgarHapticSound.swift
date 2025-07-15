@@ -21,19 +21,19 @@ import CoreHaptics
 /// NormalizedHapticEvent is used as a base template for creating CHHapticEvent's by calling it's ``toCHHapticEvent(rate:totalDuration:)``
 public struct AgarNormalizedHapticEvent {
     /// type of event: [.hapticTransient .hapticContinuous]
-    var type: CHHapticEvent.EventType
+    public var type: CHHapticEvent.EventType
     
     /// Strength of the event (0-1)
-    var intensity : Float
+    public var intensity : Float
     
     /// softness/sharpness of event (0-1)
-    var sharpness: Float
+    public var sharpness: Float
     
     /// normalized start time (0-1) 0:beginning, 1:end
-    var relativeTime: TimeInterval // 0.0-1.0
+    public var relativeTime: TimeInterval // 0.0-1.0
     
     /// Normalized duration within an event group or sequence (0-1)
-    var duration: TimeInterval?
+    public var duration: TimeInterval?
     
     /// Transform to `CHHapticEvent`
     ///
@@ -41,7 +41,7 @@ public struct AgarNormalizedHapticEvent {
     ///   - rate: the rate the event should be adjusted to (1.0 normal speed, 0.5 = half, 2.0 = double)
     ///   - totalDuration: The total duration in seconds that this event is part of
     /// - Returns: A`CHHapticEvent` with relativeTime and duration adjusted ***denormalized*** from `NormalizedHapticEvent` based on the `rate` and `totalDuration`
-    func toCHHapticEvent(rate: Double, totalDuration: TimeInterval) -> CHHapticEvent {
+    public func toCHHapticEvent(rate: Double, totalDuration: TimeInterval) -> CHHapticEvent {
         if type == .hapticContinuous, duration == nil {
             print("Warning: CHHapticEvent.EventType.hapticContinuous requires duration, setting to 1.0")
         }
@@ -68,12 +68,12 @@ public struct AgarNormalizedHapticEvent {
 
 ///  A container representing a sound/haptic  synced relation. events are defined with normalized relativeTime and duration to be able to calculate the real values
 public struct AgarHapticSoundDefinition {
-    var name: String
-    var events: [AgarNormalizedHapticEvent]
-    var soundResources: [AgarAudioResource]
-    var duration: TimeInterval
+    public var name: String
+    public var events: [AgarNormalizedHapticEvent]
+    public var soundResources: [AgarAudioResource]
+    public var duration: TimeInterval
     
-    func buildCHHapticEvents(rate: Double = 1.0, totalDuration: TimeInterval) -> [CHHapticEvent] {
+    public func buildCHHapticEvents(rate: Double = 1.0, totalDuration: TimeInterval) -> [CHHapticEvent] {
         events.map { $0.toCHHapticEvent(rate: rate, totalDuration: duration) }
     }
 }
@@ -204,7 +204,7 @@ public class HapticSoundGenerator {
         ]
         let soundResources = [soundResource]
         
-        return  AgarHapticSoundDefinition(name: "HydraulicDoorOpen", events: events, soundResources: soundResources, duration: duration)
+        return  AgarHapticSoundDefinition(name: "HydraulicDoor1", events: events, soundResources: soundResources, duration: duration)
     }
     
     
@@ -220,7 +220,7 @@ public class HapticSoundGenerator {
         ]
         let soundResources = [soundResource]
         
-        return  AgarHapticSoundDefinition(name: "HydraulicDoorClose", events: events, soundResources: soundResources, duration: duration)
+        return  AgarHapticSoundDefinition(name: "HydraulicDoor2", events: events, soundResources: soundResources, duration: duration)
     }
     
     

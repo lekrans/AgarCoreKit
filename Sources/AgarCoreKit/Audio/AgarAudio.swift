@@ -15,21 +15,24 @@
 import SpriteKit
 import AVFoundation
 
+
+
+/// Audio information for an Audie Resource
 public struct AgarAudioResource {
-    var fileName: String
-    var volume: Float = 1.0
-    var pitch: Float = 1.0
-    var rate: Float = 1.0
-    var length: TimeInterval
-    var relativeTime: TimeInterval = 0.0
+    public var fileName: String
+    public var volume: Float = 1.0
+    public var pitch: Float = 1.0
+    public var rate: Float = 1.0
+    public var length: TimeInterval
+    public var relativeTime: TimeInterval = 0.0
     
     /// FileName without extension
-    var name: String {
+    public var name: String {
         return String(fileName.split(separator: ".").first ?? "")
     }
     
     /// File extension
-    var ext: String {
+    public var ext: String {
         return String(fileName.split(separator: ".").last ?? "")
     }
     

@@ -9,7 +9,7 @@
 import AVFoundation
 import Foundation
 
-class AudioManager {
+public class AudioManager {
     private var engine: AVAudioEngine?
     
     
@@ -38,8 +38,8 @@ class AudioManager {
         guard let url = Bundle.main.url(forResource: sound.name, withExtension: sound.ext),
               let file = try? AVAudioFile(forReading: url) else { return }
         
-        var player: AVAudioPlayerNode = AVAudioPlayerNode()
-        var timePitch =  AVAudioUnitTimePitch()
+        let player: AVAudioPlayerNode = AVAudioPlayerNode()
+        let timePitch =  AVAudioUnitTimePitch()
         
         engine.attach(player)
         engine.attach(timePitch)
