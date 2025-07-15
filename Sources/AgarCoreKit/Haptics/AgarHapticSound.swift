@@ -174,7 +174,7 @@ public class HapticSoundGenerator {
     ///   - name: The name of the predefined event
     ///   - rate: The speed of the AgarHapticSound
     /// - Returns: An instance of ``AgarHapticSound``
-    @MainActor func generate(name: Haptics, rate: Double = 1.0) -> AgarHapticSound {
+    @MainActor public func generate(name: Haptics, rate: Double = 1.0) -> AgarHapticSound {
         guard rate != 0 else {
             fatalError("try to generate haptic with rate 0")
         }
