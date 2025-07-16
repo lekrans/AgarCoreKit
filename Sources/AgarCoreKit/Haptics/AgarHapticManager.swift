@@ -52,7 +52,7 @@ public class AgarHapticManager {
     
     
     
-    func playEvents(_ events: [CHHapticEvent]) {
+    public func playEvents(_ events: [CHHapticEvent]) {
         guard let engine = engine else { return }
         do {
             let pattern = try CHHapticPattern(events: events, parameters: [])
