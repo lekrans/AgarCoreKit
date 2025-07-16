@@ -40,7 +40,8 @@ public class AudioManager {
         //        let ext = String(fileName.split(separator: ".").last ?? "")
         //
         print("sound.name \(sound.name)")
-        guard let url = Bundle.main.url(forResource: sound.name, withExtension: sound.ext),
+        print("sound.ext \(sound.ext)")
+        guard let url = Bundle.module.url(forResource: sound.name, withExtension: sound.ext),
               let file = try? AVAudioFile(forReading: url) else {
             print("❌ sound '\(sound.name)' not found")
             return
