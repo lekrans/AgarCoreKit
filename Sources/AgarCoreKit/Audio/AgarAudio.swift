@@ -48,8 +48,8 @@ public struct AgarSounds {
                     struct heavy {
                         struct hydraulic {
                             struct sliding {
-                                @MainActor static let opening = AgarAudioResource(fileName: "Resources/Sounds/hydraulic/hydraulic1.wav", length: 1.71)
-                                @MainActor static let closing = AgarAudioResource(fileName: "AgarCoreKit/Resources/Sounds/hydraulic/hydraulic2.wav", length: 1.58)
+                                @MainActor static let opening = AgarAudioResource(fileName: "hydraulic1.wav", length: 1.71)
+                                @MainActor static let closing = AgarAudioResource(fileName: "hydraulic2.wav", length: 1.58)
                             } // sliding
                         } // hydraulic
                     } // heavy
@@ -70,7 +70,7 @@ public struct AgarSounds {
         struct small {
             struct guns {
                 struct cocking {
-                    @MainActor static let long = AgarAudioResource(fileName: "Sources/AgarCoreKit/Resources/Sounds/cocking/cocking1.wav", length: 1.02)
+                    @MainActor static let long = AgarAudioResource(fileName: "cocking1.wav", length: 1.02)
                     @MainActor static let short = AgarAudioResource(fileName: "cocking2.wav", length: 0.79)
                 } // cocking
             } // guns
@@ -91,7 +91,7 @@ public struct AgarSounds {
             //            static let medium = AgarSoundResource(fileName: "explosion2.wav", volume: 1.0, pitch: 1.0)
         } // explosions
         struct swooshes {
-            @MainActor static let short = AgarAudioResource(fileName: "swoosh/swoosh.flac", length: 0.58)
+            @MainActor static let short = AgarAudioResource(fileName: "swoosh.flac", length: 0.58)
         } // Swooshes
     } // effects
 }
