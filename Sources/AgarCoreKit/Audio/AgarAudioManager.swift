@@ -28,15 +28,23 @@ public class AudioManager {
     }
     
     func playModifiedSound(sound: AgarAudioResource) {
-        
-        guard let engine = engine else { return }
+        print("In playModifiedSound")
+        print("sound = \(sound)")
+        guard let engine = engine else {
+            print("⚠️ engine is nil")
+            return
+        }
         
         
         //        let fileNameNoExt = String(fileName.split(separator: ".").first ?? "")
         //        let ext = String(fileName.split(separator: ".").last ?? "")
         //
+        print("sound.name \(sound.name)")
         guard let url = Bundle.main.url(forResource: sound.name, withExtension: sound.ext),
-              let file = try? AVAudioFile(forReading: url) else { return }
+              let file = try? AVAudioFile(forReading: url) else {
+            print("❌ sound '\(sound.name)' not found")
+            return
+        }
         
         let player: AVAudioPlayerNode = AVAudioPlayerNode()
         let timePitch =  AVAudioUnitTimePitch()
