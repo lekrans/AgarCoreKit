@@ -63,7 +63,7 @@ public class AgarHapticManager {
         }
     }
     
-    func playHapticSoundEvent(hapticSound: AgarHapticSound, rate: Double = 1.0) {
+    public func playHapticSoundEvent(hapticSound: AgarHapticSound, rate: Double = 1.0) {
         guard let engine = engine, let avEngine = avEngine else { return }
         do {
             
