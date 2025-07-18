@@ -17,27 +17,6 @@ import AVFoundation
 
 
 
-/// Audio information for an Audie Resource
-public struct AgarAudioResource {
-    public var fileName: String
-    public var volume: Float = 1.0
-    public var pitch: Float = 1.0
-    public var rate: Float = 1.0
-    public var length: TimeInterval
-    public var relativeTime: TimeInterval = 0.0
-    
-    /// FileName without extension
-    public var name: String {
-        return String(fileName.split(separator: ".").first ?? "")
-    }
-    
-    /// File extension
-    public var ext: String {
-        return String(fileName.split(separator: ".").last ?? "")
-    }
-    
-    
-}
 
 public struct AgarSounds {
     // type of sound
@@ -48,8 +27,8 @@ public struct AgarSounds {
                     struct heavy {
                         struct hydraulic {
                             struct sliding {
-                                @MainActor static let opening = AgarAudioResource(fileName: "hydraulic1.wav", length: 1.71)
-                                @MainActor static let closing = AgarAudioResource(fileName: "hydraulic2.wav", length: 1.58)
+                                @MainActor static let opening = AgarAudioResource(fileName: "Resources/Sounds/hydraulic/hydraulic1.wav", length: 1.71)
+                                @MainActor static let closing = AgarAudioResource(fileName: "AgarCoreKit/Resources/Sounds/hydraulic/hydraulic2.wav", length: 1.58)
                             } // sliding
                         } // hydraulic
                     } // heavy
