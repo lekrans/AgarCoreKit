@@ -77,7 +77,35 @@ public class AgarHapticManager {
         } catch {
             print("Error: \(error)")
         }
-        
+    }
+    
+    
+    /// Simple default values for a click
+    public enum clickStrength: Double {
+        case weak = 0.3
+        case medium = 0.5
+        case strong = 1
+    }
+    
+    
+    /// Simple default value for a click's sharpness
+    public enum clickSharpness: Double {
+        case soft = 0.25
+        case medium = 0.75
+        case hard = 1
+    }
+    
+    
+    
+    /// Play a click haptic
+    ///
+    /// This is meant to be used as a fast way to add a haptic to a button tap or the like
+    /// - Parameters:
+    ///   - strength: The strength of the click
+    ///   - sharpness: The sharpness of the click
+    public func click(strength: clickStrength = .medium, sharpness: clickSharpness = .medium) {
+        let event = transientHaptic(intensity: Float(strength.rawValue), sharpness: Float(sharpness.rawValue))
+        playEvents([event])
     }
     
     
